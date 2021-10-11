@@ -3,13 +3,17 @@ class Staff
 {
     public $S_ID;
     public $S_FName;
+    public $S_LName;
+    public $S_DoB;
   
 
 
-    public function __construct($S_ID,$S_FName)
+    public function __construct($S_ID,$S_FName,$S_LName,$S_DoB)
     {
         $this->S_ID = $S_ID;
         $this->S_FName = $S_FName;
+        $this->S_LName = $S_LName;
+        $this->S_DoB = $S_DoB;
        
 
     }
@@ -41,8 +45,9 @@ class Staff
         while ($my_row = $result->fetch_assoc()) {
             $S_ID= $my_row[S_ID];
             $S_FName= $my_row[S_FName];
-           //echo $S_ID,$S_FName;
-            $staffList[] = new Staff($S_ID,$S_FName);
+            $S_LName= $my_row[S_LName];
+            $S_DoB= $my_row[S_DoB];
+            $staffList[] = new Staff($S_ID,$S_FName,$S_LName,$S_DoB);
         }
         require("connection_close.php");
         return $staffList;
