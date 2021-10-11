@@ -1,7 +1,8 @@
 <?php
 class Staff
 {
-    public $S_ID,$S_FName;
+    public $S_ID;
+    public $S_FName;
   
 
 
@@ -33,15 +34,14 @@ class Staff
 
     public static function getAll()
     {
-        $quotationDetailList = [];
+        $staffList = [];
         require("connection_connect.php");
         $sql = "SELECT * FROM Staff";
         $result = $conn->query($sql);
         while ($my_row = $result->fetch_assoc()) {
             $S_ID= $my_row[S_ID];
             $S_FName= $my_row[S_FName];
-           
-
+           //echo $S_ID,$S_FName;
             $staffList[] = new Staff($S_ID,$S_FName);
         }
         require("connection_close.php");

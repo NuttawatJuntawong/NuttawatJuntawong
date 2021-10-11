@@ -3,7 +3,7 @@
         public function index()
         {
             $staff_list = Staff::getAll();
-            require_once("./views/quotationDetail/index_quotationDetail.php");
+            require_once("./views/staff/index_staff.php");
         }
 
         // public function newQuotationDetail()

@@ -11,7 +11,7 @@ Search</button>
 <td>FirstName</td>
 
 <td>update</td><td>delete</td> </tr>
-<?php foreach($staffList as $staff){
+<?php foreach($staff_list as $staff){
     echo "<tr> 
     <td>$$staff->S_ID</td>
     <td>$$staff->S_FName</td> 
