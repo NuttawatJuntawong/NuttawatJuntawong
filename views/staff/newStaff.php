@@ -1,9 +1,8 @@
 <form method="get" action="">
 
-<label>StaffID<input type="text" name="S_ID"/> </label><br>
-<label>FirstName<input type="text" name="S_FName"/> </label><br>
-<label>LastName<input type="text" name="S_LName"/> </label><br>
-<label>DoB<input type="date" name="S_DoB"/> </label><br>
+<label>ชื่อจริง<input type="text" name="S_FName"/> </label><br>
+<label>นามสกุล<input type="text" name="S_LName"/> </label><br>
+<label>วันเกิด (ปี/เดือน/วันที่)<input type="date" name="S_DoB"/> </label><br>
 
 
 <input type="hidden" name="controller" value="staff"/>

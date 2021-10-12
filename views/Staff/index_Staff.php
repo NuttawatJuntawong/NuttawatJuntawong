@@ -8,9 +8,9 @@ new Staff <a href=?controller=staff&action=newStaff> click </a> <br>
 Search</button>
 </form><br>
 <tr> <td>StaffID</td>
-<td>FirstName</td>
-<td>LastName</td>
-<td>DoB</td>
+<td>ชื่อจริง</td>
+<td>นามสกุล</td>
+<td>วันเกิด</td>
 
 <td>update</td><td>delete</td> </tr>
 <?php foreach($staff_list as $staff){

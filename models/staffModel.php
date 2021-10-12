@@ -78,7 +78,7 @@ class Staff
     public static function Add($S_ID,$S_FName,$S_LName,$S_DoB)
     {
         require("connection_connect.php");
-        $sql = "INSERT INTO `Staff`(`S_ID`, `S_FName`, `S_LName`, `S_DoB`, `S_Status`) VALUES ('$S_ID','$S_FName','$S_LName','$S_DoB',1);";
+        $sql = "INSERT INTO `Staff`(`S_FName`, `S_LName`, `S_DoB`, `S_Status`) VALUES ('$S_FName','$S_LName','$S_DoB',1);";
         $result = $conn->query($sql);
         require("connection_close.php");
         return ;
