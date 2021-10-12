@@ -40,7 +40,7 @@ class Staff
     {
         $staffList = [];
         require("connection_connect.php");
-        $sql = "SELECT * FROM Staff";
+        $sql = "SELECT * FROM Staff WHERE S_Status = 1";
         $result = $conn->query($sql);
         while ($my_row = $result->fetch_assoc()) {
             $S_ID= $my_row[S_ID];
@@ -75,14 +75,14 @@ class Staff
     //     require("connection_close.php");
     //     return $quotationDetailList;
     // }
-    // public static function Add($QDID,$QID,$procID,$QtyScr,$Unit)
-    // {
-    //     require("connection_connect.php");
-    //     $sql = "INSERT INTO `quotation_detail` (`QD_ID`, `QD_Quantity`, `QD_ScreenQty`, `PC_ID`, `Q_ID`) VALUES ('$QDID', '$Unit', '$QtyScr', '$procID', '$QID');";
-    //     $result = $conn->query($sql);
-    //     require("connection_close.php");
-    //     return ;
-    // }
+    public static function Add($S_ID,$S_FName,$S_LName,$S_DoB)
+    {
+        require("connection_connect.php");
+        $sql = "INSERT INTO `Staff`(`S_ID`, `S_FName`, `S_LName`, `S_DoB`, `S_Status`) VALUES ('$S_ID','$S_FName','$S_LName','$S_DoB',1);";
+        $result = $conn->query($sql);
+        require("connection_close.php");
+        return ;
+    }
     // public static function update($NewQDID,$QID,$PCID,$QtyScr,$Unit,$ID)
     // {
     //     //echo $NewQDID,$QID,$PCID,$QtyScr,$Unit;

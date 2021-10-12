@@ -6,27 +6,25 @@
             require_once("./views/staff/index_staff.php");
         }
 
-        // public function newQuotationDetail()
-        // {
-        //     $product_list = ProductColor::getAll();
-        //     $quotation_list = Quotation::getAll();
-        //     require_once("./views/quotationDetail/newQuotationDetail.php");
-        // }
+        public function newStaff()
+        {
+            $staff_list = Staff::getAll();
+            require_once("./views/staff/newStaff.php");
+        }
 
-        // public function addQuotationDetail()
-        // {
-        //     $QDID = $_GET['QID']."_".$_GET['procID'];
-        //     $QID = $_GET['QID'];
-        //     $PID = $_GET['procID'];
-        //     $QtyScr = $_GET['QtyScr'];
-        //     $Unit = $_GET['Unit'];
+        public function addStaff()
+        {
+            $S_ID = $_GET['S_ID'];
+            $S_FName = $_GET['S_FName'];
+            $S_LName = $_GET['S_LName'];
+            $S_DoB = $_GET['S_DoB'];
             
-        //     echo $QID." ".$PID." ".$QtyScr." ".$Unit;
+            echo $S_ID." ".$S_FName." ".$S_LName." ".$S_DoB;
 
-        //     QuotationDetail::Add($QDID,$QID,$PID,$QtyScr,$Unit);
-        //     QuotationDetailController::index();
+            Staff::Add($S_ID,$S_FName,$S_LName,$S_DoB);
+            StaffController::index();
 
-        // }
+        }
 
         // public function searchQuotationDetail(){
         //     $key = $_GET['key'];

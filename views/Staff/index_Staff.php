@@ -1,5 +1,5 @@
 <table border = 1>
-new Staff <a href=?controller=quotationDetail&action=newQuotationDetail> click </a> <br>
+new Staff <a href=?controller=staff&action=newStaff> click </a> <br>
 
 <form method="get" action="">
     <input type="text" name="key">
