@@ -52,29 +52,23 @@ class Staff
         require("connection_close.php");
         return $staffList;
     }
-    // public static function search($key)
-    // {
-    //     $quotationDetailList = [];
-    //     require("connection_connect.php");
-    //     $sql = "SELECT * FROM quotationDetail, quotation_detail, product_color, product WHERE quotationDetail.QD_ID = quotation_detail.QD_ID AND product_color.PC_ID = quotation_detail.PC_ID AND product.P_ID = product_color.P_ID AND (product.P_ID LIKE '%$key%' OR product.P_Name LIKE '%$key%' OR quotation_detail.Q_ID LIKE '%$key%' OR product_color.PC_Color LIKE '%$key%')";
-    //     $result = $conn->query($sql);
-    //     while ($my_row = $result->fetch_assoc()) {
-    //         $QDid = $my_row[QD_ID];
-    //         $Qid = $my_row[Q_ID];
-    //         $Pid = $my_row[P_ID];
-    //         $Pname = $my_row[P_Name];
-    //         $PCid = $my_row[PC_ID];
-    //         $Pcolor = $my_row[PC_Color];
-    //         $Unit = $my_row[QD_Quantity];
-    //         $QDScr = $my_row[QD_ScreenQty];
-    //         $UnitPrice = $my_row[Price];
-    //         $Total = $my_row[Total];
+    public static function search($key)
+    {
+        $staffList = [];
+        require("connection_connect.php");
+        $sql = "SELECT * FROM Staff WHERE S_Status = 1 AND (Staff.S_ID LIKE '%$key%' OR Staff.S_FName LIKE '%$key%' OR Staff.S_LName LIKE '%$key%' OR Staff.S_DoB LIKE '%$key%')";
+        $result = $conn->query($sql);
+        while ($my_row = $result->fetch_assoc()) {
+            $S_ID= $my_row[S_ID];
+            $S_FName= $my_row[S_FName];
+            $S_LName= $my_row[S_LName];
+            $S_DoB= $my_row[S_DoB];
 
-    //         $quotationDetailList[] = new QuotationDetail($QDid,$Qid, $Pid, $Pname,$PCid ,$Pcolor,$Unit,$QDScr,$UnitPrice,$Total);
-    //     }
-    //     require("connection_close.php");
-    //     return $quotationDetailList;
-    // }
+            $staffList[] = new Staff($S_ID,$S_FName,$S_LName,$S_DoB);
+        }
+        require("connection_close.php");
+        return $staffList;
+    }
     public static function Add($S_ID,$S_FName,$S_LName,$S_DoB)
     {
         require("connection_connect.php");

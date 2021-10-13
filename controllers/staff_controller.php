@@ -26,12 +26,12 @@
 
         }
 
-        // public function searchQuotationDetail(){
-        //     $key = $_GET['key'];
-        //     $quotationDetail_list = QuotationDetail::search($key);
-        //     echo "search";
-        //     require_once("./views/quotationDetail/index_quotationDetail.php");
-        // }
+        public function search(){
+            $key = $_GET['key'];
+            $staff_list = Staff::search($key);
+            echo "search";
+            require_once("./views/staff/index_staff.php");
+        }
 
         // public function updateFormQuotationDetail(){
         //     $ID = $_GET['ID'];

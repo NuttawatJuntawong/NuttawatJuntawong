@@ -3,10 +3,11 @@ new Staff <a href=?controller=staff&action=newStaff> click </a> <br>
 
 <form method="get" action="">
     <input type="text" name="key">
-    <input type="hidden" name="controller" value="quotationDetail"/>
-    <button type="submit" name="action" value="searchQuotationDetail">
+    <input type="hidden" name="controller" value="staff"/>
+    <button type="submit" name="action" value="search">
 Search</button>
 </form><br>
+
 <tr> <td>StaffID</td>
 <td>ชื่อจริง</td>
 <td>นามสกุล</td>
