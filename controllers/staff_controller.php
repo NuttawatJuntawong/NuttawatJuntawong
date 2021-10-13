@@ -33,26 +33,21 @@
             require_once("./views/staff/index_staff.php");
         }
 
-        // public function updateFormQuotationDetail(){
-        //     $ID = $_GET['ID'];
-        //     $quotationDetail = QuotationDetail::get($ID);
-        //     $product_list = ProductColor::getAll();
-        //     $quotation_list = Quotation::getAll();
+        public function updateForm(){
+            $ID = $_GET['ID'];
+            $staff = Staff::get($ID);
+            $staff_list = Staff::getAll();
+            require_once("./views/staff/updateForm.php");
+        }
 
-        //     require_once("./views/quotationDetail/updateFormQuotationDetail.php");
-        // }
-
-        // public function updateQuotationDetail(){
-        //     $ID = $_GET['ID'];
-
-        //     $NewQDID = $_GET['QID']."_".$_GET['procID'];
-        //     $QID = $_GET['QID'];
-        //     $PCID = $_GET['procID'];
-        //     $QtyScr = $_GET['QtyScr'];
-        //     $Unit = $_GET['Unit'];
-        //     QuotationDetail::update($NewQDID,$QID,$PCID,$QtyScr,$Unit,$ID);
-        //     QuotationDetailController::index();
-        // }
+        public function update(){
+            $ID = $_GET['ID'];
+            $S_FName = $_GET['S_FName'];
+            $S_LName = $_GET['S_LName'];
+            $S_DoB = $_GET['S_DoB'];
+            Staff::update($ID,$S_FName,$S_LName,$S_DoB);
+            StaffController::index();
+        }
 
         // public function deleteConfirmQuotationDetail(){
         //     $ID = $_GET['ID'];
