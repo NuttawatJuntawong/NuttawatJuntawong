@@ -6,25 +6,25 @@
             require_once("./views/staffposition/index_staffposition.php");
         }
 
-        // public function newStaff()
-        // {
-        //     $staff_list = Staff::getAll();
-        //     require_once("./views/staff/newStaff.php");
-        // }
+        public function newStaffposition()
+        {
+            $staffposition_list = Staffposition::getAll();
+            require_once("./views/staffposition/newStaffposition.php");
+        }
 
-        // public function addStaff()
-        // {
-        //     $S_ID = $_GET['S_ID'];
-        //     $S_FName = $_GET['S_FName'];
-        //     $S_LName = $_GET['S_LName'];
-        //     $S_DoB = $_GET['S_DoB'];
+        public function addStaffposition()
+        {
+            $SP_ID = $_GET['SP_ID'];
+            $SP_Name = $_GET['SP_Name'];
+            $SP_Salary = $_GET['SP_Salary'];
+            $SP_Duty = $_GET['SP_Duty'];
             
-        //     echo $S_ID." ".$S_FName." ".$S_LName." ".$S_DoB;
+            echo $SP_ID." ".$SP_Name." ".$SP_Salary." ".$SP_Duty;
 
-        //     Staff::Add($S_ID,$S_FName,$S_LName,$S_DoB);
-        //     StaffController::index();
+            Staffposition::Add($SP_ID,$SP_Name,$SP_Salary,$SP_Duty);
+            StaffpositionController::index();
 
-        // }
+        }
 
         // public function search(){
         //     $key = $_GET['key'];

@@ -63,14 +63,14 @@ class Staffposition
     //     require("connection_close.php");
     //     return $staffList;
     // }
-    // public static function Add($S_ID,$S_FName,$S_LName,$S_DoB)
-    // {
-    //     require("connection_connect.php");
-    //     $sql = "INSERT INTO `Staff`(`S_FName`, `S_LName`, `S_DoB`, `S_Status`) VALUES ('$S_FName','$S_LName','$S_DoB',1);";
-    //     $result = $conn->query($sql);
-    //     require("connection_close.php");
-    //     return ;
-    // }
+    public static function Add($SP_ID,$SP_Name,$SP_Salary,$SP_Duty)
+    {
+        require("connection_connect.php");
+        $sql = "INSERT INTO `StaffPosition`(`SP_ID`, `SP_Name`, `SP_Salary`, `SP_Duty`) VALUES ('$SP_ID','$SP_Name','$SP_Salary','$SP_Duty')";
+        $result = $conn->query($sql);
+        require("connection_close.php");
+        return ;
+    }
     // public static function update($ID,$S_FName,$S_LName,$S_DoB)
     // {
     //     echo $ID,$S_FName,$S_LName,$S_DoB;
