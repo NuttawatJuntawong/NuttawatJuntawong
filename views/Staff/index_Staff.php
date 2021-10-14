@@ -22,7 +22,7 @@ Search</button>
     <td>$staff->S_DoB</td> 
 
     <td> <a href=?controller=staff&action=updateForm&ID=$staff->S_ID> update </a> </td>
-    <td> <a href=?controller=quotationDetail&action=deleteConfirmQuotationDetail&ID=$quotationDetail->QDid> delete </a> </td>"; 
+    <td> <a href=?controller=staff&action=deleteConfirm&ID=$staff->S_ID> delete </a> </td>"; 
 }
 echo "</table>";
 ?>

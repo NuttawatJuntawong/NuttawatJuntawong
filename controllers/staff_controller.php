@@ -49,17 +49,17 @@
             StaffController::index();
         }
 
-        // public function deleteConfirmQuotationDetail(){
-        //     $ID = $_GET['ID'];
-        //     $quotationDetail = QuotationDetail::get($ID);
-        //     require_once("./views/quotationDetail/deleteConfirm.php");
-        // }
+        public function deleteConfirm(){
+            $ID = $_GET['ID'];
+            $staff = Staff::get($ID);
+            require_once("./views/staff/deleteConfirm.php");
+        }
 
-        // public function deleteQuotationDetail(){
-        //     $ID = $_GET['ID'];
-        //     QuotationDetail::delete($ID);
-        //     QuotationDetailController::index();
-        // }
+        public function delete(){
+            $ID = $_GET['ID'];
+            staff::delete($ID);
+            StaffController::index();
+        }
 
     }
 ?>
