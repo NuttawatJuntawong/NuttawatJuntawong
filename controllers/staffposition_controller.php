@@ -33,21 +33,21 @@
             require_once("./views/staffposition/index_staffposition.php");
         }
 
-        // public function updateForm(){
-        //     $ID = $_GET['ID'];
-        //     $staff = Staff::get($ID);
-        //     $staff_list = Staff::getAll();
-        //     require_once("./views/staff/updateForm.php");
-        // }
+        public function updateForm(){
+            $ID = $_GET['ID'];
+            $staffposition = Staffposition::get($ID);
+            $staffposition_list = Staffposition::getAll();
+            require_once("./views/staffposition/updateForm.php");
+        }
 
-        // public function update(){
-        //     $ID = $_GET['ID'];
-        //     $S_FName = $_GET['S_FName'];
-        //     $S_LName = $_GET['S_LName'];
-        //     $S_DoB = $_GET['S_DoB'];
-        //     Staff::update($ID,$S_FName,$S_LName,$S_DoB);
-        //     StaffController::index();
-        // }
+        public function update(){
+            $ID = $_GET['ID'];
+            $SP_Name = $_GET['SP_Name'];
+            $SP_Salary = $_GET['SP_Salary'];
+            $SP_Duty = $_GET['SP_Duty'];
+            Staffposition::update($ID,$SP_Name,$SP_Salary,$SP_Duty);
+            StaffpositionController::index();
+        }
 
         // public function deleteConfirm(){
         //     $ID = $_GET['ID'];

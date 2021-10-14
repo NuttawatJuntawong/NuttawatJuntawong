@@ -21,8 +21,8 @@ Search</button>
     <td>$position->SP_Salary</td> 
     <td>$position->SP_Duty</td> 
 
-    <td> <a href=?controller=staff&action=updateForm&ID=$staff->S_ID> update </a> </td>
-    <td> <a href=?controller=staff&action=deleteConfirm&ID=$staff->S_ID> delete </a> </td>"; 
+    <td> <a href=?controller=staffposition&action=updateForm&ID=$position->SP_ID> update </a> </td>
+    <td> <a href=?controller=staffposition&action=deleteConfirm&ID=$position->SP_ID> delete </a> </td>"; 
 }
 echo "</table>";
 ?>

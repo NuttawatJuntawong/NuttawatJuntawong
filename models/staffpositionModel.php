@@ -17,18 +17,18 @@ class Staffposition
        
 
     }
-    // public static function get($ID){
-    //     require("connection_connect.php");
-    //     $sql = "SELECT * FROM Staff WHERE S_Status = 1 AND Staff.S_ID = '$ID'";
-    //     $result = $conn->query($sql);
-    //     $my_row = $result->fetch_assoc();
-    //     $S_ID= $my_row[S_ID];
-    //     $S_FName= $my_row[S_FName];
-    //     $S_LName= $my_row[S_LName];
-    //     $S_DoB= $my_row[S_DoB];
-    //     require("connection_close.php");
-    //     return new Staff($S_ID,$S_FName,$S_LName,$S_DoB);
-    // }
+    public static function get($ID){
+        require("connection_connect.php");
+        $sql = "SELECT * FROM StaffPosition WHERE StaffPosition.SP_ID = '$ID'";
+        $result = $conn->query($sql);
+        $my_row = $result->fetch_assoc();
+        $SP_ID= $my_row[SP_ID];
+        $SP_Name= $my_row[SP_Name];
+        $SP_Salary= $my_row[SP_Salary];
+        $SP_Duty= $my_row[SP_Duty];
+        require("connection_close.php");
+        return new Staffposition($SP_ID,$SP_Name,$SP_Salary,$SP_Duty);
+    }
 
     public static function getAll()
     {
@@ -71,14 +71,14 @@ class Staffposition
         require("connection_close.php");
         return ;
     }
-    // public static function update($ID,$S_FName,$S_LName,$S_DoB)
-    // {
-    //     echo $ID,$S_FName,$S_LName,$S_DoB;
-    //     require("connection_connect.php");
-    //     $sql = "UPDATE `Staff` SET `S_ID`= $ID, `S_FName`='$S_FName', `S_LName`='$S_LName',`S_DoB`='$S_DoB' WHERE Staff.S_ID = $ID";
-    //     $result = $conn->query($sql);
-    //     require("connection_close.php");
-    // }
+    public static function update($ID,$SP_Name,$SP_Salary,$SP_Duty)
+    {
+        echo $ID,$SP_Name,$SP_Salary,$SP_Duty;
+        require("connection_connect.php");
+        $sql = "UPDATE `StaffPosition` SET `SP_Name`='$SP_Name',`SP_Salary`='$SP_Salary',`SP_Duty`='$SP_Duty' WHERE StaffPosition.SP_ID = '$ID'";
+        $result = $conn->query($sql);
+        require("connection_close.php");
+    }
 
     // public static function delete($ID)
     // {
