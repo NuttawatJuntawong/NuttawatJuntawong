@@ -46,23 +46,23 @@ class Staffposition
         require("connection_close.php");
         return $staffpositionList;
     }
-    // public static function search($key)
-    // {
-    //     $staffList = [];
-    //     require("connection_connect.php");
-    //     $sql = "SELECT * FROM Staff WHERE S_Status = 1 AND (Staff.S_ID LIKE '%$key%' OR Staff.S_FName LIKE '%$key%' OR Staff.S_LName LIKE '%$key%' OR Staff.S_DoB LIKE '%$key%')";
-    //     $result = $conn->query($sql);
-    //     while ($my_row = $result->fetch_assoc()) {
-    //         $S_ID= $my_row[S_ID];
-    //         $S_FName= $my_row[S_FName];
-    //         $S_LName= $my_row[S_LName];
-    //         $S_DoB= $my_row[S_DoB];
+    public static function search($key)
+    {
+        $staffpositionList = [];
+        require("connection_connect.php");
+        $sql = "SELECT * FROM StaffPosition WHERE (StaffPosition.SP_ID LIKE '%$key%' OR StaffPosition.SP_Name LIKE '%$key%' OR StaffPosition.SP_Salary LIKE '%$key%' OR StaffPosition.SP_Duty LIKE '%$key%')";
+        $result = $conn->query($sql);
+        while ($my_row = $result->fetch_assoc()) {
+            $SP_ID= $my_row[SP_ID];
+            $SP_Name= $my_row[SP_Name];
+            $SP_Salary= $my_row[SP_Salary];
+            $SP_Duty= $my_row[SP_Duty];
 
-    //         $staffList[] = new Staff($S_ID,$S_FName,$S_LName,$S_DoB);
-    //     }
-    //     require("connection_close.php");
-    //     return $staffList;
-    // }
+            $staffpositionList[] = new Staffposition($SP_ID,$SP_Name,$SP_Salary,$SP_Duty);
+        }
+        require("connection_close.php");
+        return $staffpositionList;
+    }
     public static function Add($SP_ID,$SP_Name,$SP_Salary,$SP_Duty)
     {
         require("connection_connect.php");
