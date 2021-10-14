@@ -1,5 +1,5 @@
 <?php echo "<br> Are you sure to delete this Staff <br>
-            <br> Staff ID:$staff->S_ID <br>$staff->S_FName $staff->S_LName <br>วันเกิด:$staff->S_DoB <br";?>
+            <br> Staff ID: $staff->S_ID <br>ชื่อ - นามสกุล: $staff->S_FName $staff->S_LName <br>วันเกิด: $staff->S_DoB <br> <br>";?>
 
 <form method="get" action="">
 

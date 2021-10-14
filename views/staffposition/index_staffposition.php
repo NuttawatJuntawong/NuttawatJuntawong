@@ -1,0 +1,28 @@
+<table border = 1>
+new StaffPosition <a href=?controller=staffposition&action=newStaffposition> click </a> <br>
+
+<form method="get" action="">
+    <input type="text" name="key">
+    <input type="hidden" name="controller" value="staffposition"/>
+    <button type="submit" name="action" value="search">
+Search</button>
+</form><br>
+
+<tr> <td>Position ID</td>
+<td>ชื่อตำแหน่งงาน</td>
+<td>รายได้ต่อวัน</td>
+<td>หน้าที่</td>
+
+<td>update</td><td>delete</td> </tr>
+<?php foreach($staffposition_list as $position){
+    echo "<tr> 
+    <td>$position->SP_ID</td>
+    <td>$position->SP_Name</td> 
+    <td>$position->SP_Salary</td> 
+    <td>$position->SP_Duty</td> 
+
+    <td> <a href=?controller=staff&action=updateForm&ID=$staff->S_ID> update </a> </td>
+    <td> <a href=?controller=staff&action=deleteConfirm&ID=$staff->S_ID> delete </a> </td>"; 
+}
+echo "</table>";
+?>
