@@ -30,8 +30,8 @@ Search</button>
     <td>$staffdaily->Station_StartTime</td>  
     <td>$staffdaily->StationDate_Date</td> 
 
-    <td> <a href=?controller=staff&action=updateForm&ID=$staffdaily->SD_ID> update </a> </td>
-    <td> <a href=?controller=staff&action=deleteConfirm&ID=$staffdaily->SD_ID> delete </a> </td>"; 
+    <td> <a href=?controller=staffdaily&action=updateForm&ID=$staffdaily->SD_ID> update </a> </td>
+    <td> <a href=?controller=staffdaily&action=deleteConfirm&ID=$staffdaily->SD_ID> delete </a> </td>"; 
 }
 echo "</table>";
 ?>

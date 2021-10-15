@@ -29,7 +29,6 @@
         public function search(){
             $key = $_GET['key'];
             $staffposition_list = Staffposition::search($key);
-            //echo "search";
             require_once("./views/staffposition/index_staffposition.php");
         }
 
@@ -45,7 +44,8 @@
             $SP_Name = $_GET['SP_Name'];
             $SP_Salary = $_GET['SP_Salary'];
             $SP_Duty = $_GET['SP_Duty'];
-            Staffposition::update($ID,$SP_Name,$SP_Salary,$SP_Duty);
+            $SP_Status = $_GET['SP_Status'];
+            Staffposition::update($ID,$SP_Name,$SP_Salary,$SP_Duty,$SP_Status);
             StaffpositionController::index();
         }
 
