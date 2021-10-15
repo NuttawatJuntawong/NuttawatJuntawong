@@ -49,17 +49,17 @@
             StaffpositionController::index();
         }
 
-        // public function deleteConfirm(){
-        //     $ID = $_GET['ID'];
-        //     $staff = Staff::get($ID);
-        //     require_once("./views/staff/deleteConfirm.php");
-        // }
+        public function deleteConfirm(){
+            $ID = $_GET['ID'];
+            $Staffposition = Staffposition::get($ID);
+            require_once("./views/staffposition/deleteConfirm.php");
+        }
 
-        // public function delete(){
-        //     $ID = $_GET['ID'];
-        //     staff::delete($ID);
-        //     StaffController::index();
-        // }
+        public function delete(){
+            $ID = $_GET['ID'];
+            Staffposition::delete($ID);
+            StaffpositionController::index();
+        }
 
     }
 ?>

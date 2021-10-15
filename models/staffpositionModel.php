@@ -82,12 +82,12 @@ class Staffposition
         require("connection_close.php");
     }
 
-    // public static function delete($ID)
-    // {
-    //     require("connection_connect.php");
-    //     $sql = "UPDATE `Staff` SET `S_Status` = 0 WHERE Staff.S_ID = $ID";
-    //     $result = $conn->query($sql);
-    //     require("connection_close.php");
-    // }
+    public static function delete($ID)
+    {
+        require("connection_connect.php");
+        $sql = "UPDATE `StaffPosition` SET `SP_Status` = 2 WHERE StaffPosition.SP_ID = '$ID'";
+        $result = $conn->query($sql);
+        require("connection_close.php");
+    }
 
 }
