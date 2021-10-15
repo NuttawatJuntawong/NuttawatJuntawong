@@ -10,7 +10,7 @@
         {
             $staffdaily_list = Staffdaily::getAll();
             $staff_list = Staff::getAll();
-            $staffposition_list = Staffposition::getAll();
+            $staffposition_list = Staffposition::getAll2();
             $stationdate_list = StationDate::getAll();
             require_once("./views/staffDaily/newStaffdaily.php");
         }

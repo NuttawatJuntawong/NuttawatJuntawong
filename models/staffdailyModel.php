@@ -42,10 +42,7 @@ class Staffdaily
     {
         $staffdailyList = [];
         require("connection_connect.php");
-        $sql = "SELECT *
-        FROM StaffDaily NATURAL JOIN Staff NATURAL JOIN StaffPosition NATURAL JOIN Station NATURAL JOIN StationDate
-        WHERE StaffDaily.S_ID = Staff.S_ID AND StaffDaily.SP_ID = StaffPosition.SP_ID AND StationDate.Station_ID = Station.Station_ID AND Staff.S_Status != 0
-        ORDER BY StaffDaily.SD_ID";
+        $sql = "SELECT * FROM StaffDaily NATURAL JOIN Staff NATURAL JOIN StaffPosition NATURAL JOIN Station NATURAL JOIN StationDate WHERE StaffDaily.S_ID = Staff.S_ID AND StaffDaily.SP_ID = StaffPosition.SP_ID AND StationDate.Station_ID = Station.Station_ID AND Staff.S_Status != 0 AND StaffPosition.SP_Status != 2 ORDER BY StaffDaily.SD_ID";
         $result = $conn->query($sql);
         while ($my_row = $result->fetch_assoc()) {
             $SD_ID= $my_row[SD_ID];

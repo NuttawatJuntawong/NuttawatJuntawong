@@ -47,6 +47,27 @@ class Staffposition
         require("connection_close.php");
         return $staffpositionList;
     }
+
+    public static function getAll2()
+    {
+        $staffpositionList = [];
+        require("connection_connect.php");
+        $sql = "SELECT * FROM StaffPosition WHERE StaffPosition.SP_Status != 2 AND StaffPosition.SP_Status != 0";
+        $result = $conn->query($sql);
+        while ($my_row = $result->fetch_assoc()) {
+            $SP_ID= $my_row[SP_ID];
+            $SP_Name= $my_row[SP_Name];
+            $SP_Salary= $my_row[SP_Salary];
+            $SP_Duty= $my_row[SP_Duty];
+            $SP_Status= $my_row[SP_Status];
+            $staffpositionList[] = new Staffposition($SP_ID,$SP_Name,$SP_Salary,$SP_Duty,$SP_Status);
+        }
+        require("connection_close.php");
+        return $staffpositionList;
+    }
+
+
+
     public static function search($key)
     {
         $staffpositionList = [];
