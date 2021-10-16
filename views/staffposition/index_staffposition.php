@@ -1,5 +1,5 @@
 <table border = 1>
-new StaffPosition <a href=?controller=staffposition&action=newStaffposition> click </a> <br>
+new Staff Position <a href=?controller=staffposition&action=newStaffposition> click </a> <br>
 สถานะ 0 = เต็ม , 1 = เปิดรับ , 2 = ไม่มี <br>
 <form method="get" action="">
     <input type="text" name="key">
