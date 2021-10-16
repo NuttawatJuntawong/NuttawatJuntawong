@@ -3,7 +3,7 @@ new Staff Daily <a href=?controller=staffdaily&action=newStaffdaily> click </a> 
 
 <form method="get" action="">
     <input type="text" name="key">
-    <input type="hidden" name="controller" value="staff"/>
+    <input type="hidden" name="controller" value="staffdaily"/>
     <button type="submit" name="action" value="search">
 Search</button>
 </form><br>

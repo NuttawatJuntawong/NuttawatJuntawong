@@ -3,7 +3,7 @@
         public function index()
         {
             $staffdaily_list = Staffdaily::getAll();
-            require_once("./views/staffDaily/index_staff.php");
+            require_once("./views/staffDaily/index_staffdaily.php");
         }
 
         public function newStaffdaily()
@@ -28,12 +28,12 @@
 
         }
 
-        // public function search(){
-        //     $key = $_GET['key'];
-        //     $staff_list = Staff::search($key);
-        //     //echo "search";
-        //     require_once("./views/staff/index_staff.php");
-        // }
+        public function search(){
+            $key = $_GET['key'];
+            $staffdaily_list = Staffdaily::search($key);
+            //echo "search";
+            require_once("./views/staffDaily/index_staffdaily.php");
+        }
 
         // public function updateForm(){
         //     $ID = $_GET['ID'];
