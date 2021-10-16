@@ -19,7 +19,7 @@
             $SP_Salary = $_GET['SP_Salary'];
             $SP_Duty = $_GET['SP_Duty'];
             
-            echo $SP_ID." ".$SP_Name." ".$SP_Salary." ".$SP_Duty;
+            //echo $SP_ID." ".$SP_Name." ".$SP_Salary." ".$SP_Duty;
 
             Staffposition::Add($SP_ID,$SP_Name,$SP_Salary,$SP_Duty);
             StaffpositionController::index();

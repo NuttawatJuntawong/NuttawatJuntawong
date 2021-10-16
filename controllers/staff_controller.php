@@ -19,7 +19,7 @@
             $S_LName = $_GET['S_LName'];
             $S_DoB = $_GET['S_DoB'];
             
-            echo $S_ID." ".$S_FName." ".$S_LName." ".$S_DoB;
+            //echo $S_ID." ".$S_FName." ".$S_LName." ".$S_DoB;
 
             Staff::Add($S_ID,$S_FName,$S_LName,$S_DoB);
             StaffController::index();

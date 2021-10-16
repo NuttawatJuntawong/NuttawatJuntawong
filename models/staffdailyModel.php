@@ -29,7 +29,7 @@ class Staffdaily
     }
     public static function get($ID){
         require("connection_connect.php");
-        $sql = "SELECT * FROM StaffDaily NATURAL JOIN Staff NATURAL JOIN StaffPosition NATURAL JOIN Station NATURAL JOIN StationDate WHERE StaffDaily.S_ID = Staff.S_ID AND StaffDaily.SP_ID = StaffPosition.SP_ID AND StationDate.Station_ID = Station.Station_ID AND Staff.S_Status != 0 AND StaffPosition.SP_Status != 2 AND StaffDaily.SD_ID = $ID";
+        $sql = "SELECT * FROM StaffDaily NATURAL JOIN Staff NATURAL JOIN StaffPosition NATURAL JOIN Station NATURAL JOIN StationDate WHERE StaffDaily.S_ID = Staff.S_ID AND StaffDaily.SP_ID = StaffPosition.SP_ID AND StationDate.Station_ID = Station.Station_ID AND Staff.S_Status != 0 AND StaffPosition.SP_Status != 2 AND StaffDaily.SD_Status = 1 AND StaffDaily.SD_ID = $ID";
         $result = $conn->query($sql);
         $my_row = $result->fetch_assoc();
             $SD_ID= $my_row[SD_ID];
@@ -48,7 +48,7 @@ class Staffdaily
     {
         $staffdailyList = [];
         require("connection_connect.php");
-        $sql = "SELECT * FROM StaffDaily NATURAL JOIN Staff NATURAL JOIN StaffPosition NATURAL JOIN Station NATURAL JOIN StationDate WHERE StaffDaily.S_ID = Staff.S_ID AND StaffDaily.SP_ID = StaffPosition.SP_ID AND StationDate.Station_ID = Station.Station_ID AND Staff.S_Status != 0 AND StaffPosition.SP_Status != 2 ORDER BY StaffDaily.SD_ID";
+        $sql = "SELECT * FROM StaffDaily NATURAL JOIN Staff NATURAL JOIN StaffPosition NATURAL JOIN Station NATURAL JOIN StationDate WHERE StaffDaily.S_ID = Staff.S_ID AND StaffDaily.SP_ID = StaffPosition.SP_ID AND StationDate.Station_ID = Station.Station_ID AND Staff.S_Status != 0 AND StaffPosition.SP_Status != 2 AND StaffDaily.SD_Status = 1 ORDER BY StaffDaily.SD_ID";
         $result = $conn->query($sql);
         while ($my_row = $result->fetch_assoc()) {
             $SD_ID= $my_row[SD_ID];
@@ -69,7 +69,7 @@ class Staffdaily
     {
         $staffdailyList = [];
         require("connection_connect.php");
-        $sql = "SELECT * FROM StaffDaily NATURAL JOIN Staff NATURAL JOIN StaffPosition NATURAL JOIN Station NATURAL JOIN StationDate WHERE StaffDaily.S_ID = Staff.S_ID AND StaffDaily.SP_ID = StaffPosition.SP_ID AND StationDate.Station_ID = Station.Station_ID AND Staff.S_Status != 0 AND StaffPosition.SP_Status != 2
+        $sql = "SELECT * FROM StaffDaily NATURAL JOIN Staff NATURAL JOIN StaffPosition NATURAL JOIN Station NATURAL JOIN StationDate WHERE StaffDaily.S_ID = Staff.S_ID AND StaffDaily.SP_ID = StaffPosition.SP_ID AND StationDate.Station_ID = Station.Station_ID AND Staff.S_Status != 0 AND StaffPosition.SP_Status != 2 AND StaffDaily.SD_Status = 1 
          AND (StaffDaily.SD_ID LIKE '%$key%' OR Staff.S_FName LIKE '%$key%' OR Staff.S_LName LIKE '%$key%' OR StaffPosition.SP_Name LIKE '%$key%' OR StaffPosition.SP_Salary LIKE '%$key%'
          OR Station.Station_Name LIKE '%$key%'OR Station.Station_StartTime LIKE '%$key%'OR StationDate.StationDate_Date LIKE '%$key%') ORDER BY StaffDaily.SD_ID";
         $result = $conn->query($sql);
@@ -91,7 +91,7 @@ class Staffdaily
     public static function Add($S_ID,$SP_ID,$StationDate_ID)
     {
         require("connection_connect.php");
-        $sql = "INSERT INTO `StaffDaily`(`S_ID`, `SP_ID`, `StationDate_ID`) VALUES ($S_ID,'$SP_ID',$StationDate_ID)";
+        $sql = "INSERT INTO `StaffDaily`(`S_ID`, `SP_ID`, `StationDate_ID`,`SD_Status`) VALUES ($S_ID,'$SP_ID',$StationDate_ID,1)";
         $result = $conn->query($sql);
         require("connection_close.php");
         return ;
@@ -105,12 +105,12 @@ class Staffdaily
         require("connection_close.php");
     }
 
-    // public static function delete($ID)
-    // {
-    //     require("connection_connect.php");
-    //     $sql = "UPDATE `Staff` SET `S_Status` = 0 WHERE Staff.S_ID = $ID";
-    //     $result = $conn->query($sql);
-    //     require("connection_close.php");
-    // }
+    public static function delete($ID)
+    {
+        require("connection_connect.php");
+        $sql = "UPDATE `StaffDaily` SET `SD_Status`=0 WHERE StaffDaily.SD_ID = $ID";
+        $result = $conn->query($sql);
+        require("connection_close.php");
+    }
 
 }

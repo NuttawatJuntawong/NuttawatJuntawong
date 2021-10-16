@@ -21,7 +21,7 @@
             $SP_ID = $_GET['SP_ID'];
             $StationDate_ID = $_GET['StationDate_ID'];
     
-            echo $S_ID." ".$SP_ID." ".$StationDate_ID;
+            //echo $S_ID." ".$SP_ID." ".$StationDate_ID;
 
             Staffdaily::Add($S_ID,$SP_ID,$StationDate_ID);
             StaffdailyController::index();
@@ -54,17 +54,18 @@
             StaffdailyController::index();
         }
 
-        // public function deleteConfirm(){
-        //     $ID = $_GET['ID'];
-        //     $staff = Staff::get($ID);
-        //     require_once("./views/staff/deleteConfirm.php");
-        // }
+        public function deleteConfirm(){
+            $ID = $_GET['ID'];
+            $Staffdaily = Staffdaily::get($ID);
+          
+            require_once("./views/staffDaily/deleteConfirm.php");
+        }
 
-        // public function delete(){
-        //     $ID = $_GET['ID'];
-        //     staff::delete($ID);
-        //     StaffController::index();
-        // }
+        public function delete(){
+            $ID = $_GET['ID'];
+            Staffdaily::delete($ID);
+            StaffdailyController::index();
+        }
 
     }
 ?>
