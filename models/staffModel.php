@@ -73,7 +73,7 @@ class Staff
     }
     public static function update($ID,$S_FName,$S_LName,$S_DoB)
     {
-        echo $ID,$S_FName,$S_LName,$S_DoB;
+        //echo $ID,$S_FName,$S_LName,$S_DoB;
         require("connection_connect.php");
         $sql = "UPDATE `Staff` SET `S_ID`= $ID, `S_FName`='$S_FName', `S_LName`='$S_LName',`S_DoB`='$S_DoB' WHERE Staff.S_ID = $ID";
         $result = $conn->query($sql);

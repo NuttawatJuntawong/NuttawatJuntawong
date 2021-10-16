@@ -35,21 +35,24 @@
             require_once("./views/staffDaily/index_staffdaily.php");
         }
 
-        // public function updateForm(){
-        //     $ID = $_GET['ID'];
-        //     $staff = Staff::get($ID);
-        //     $staff_list = Staff::getAll();
-        //     require_once("./views/staff/updateForm.php");
-        // }
+        public function updateForm(){
+            $ID = $_GET['ID'];
+            $staffdaily = Staffdaily::get($ID);
+            $staffdaily_list = Staffdaily::getAll();
+            $staff_list = Staff::getAll();
+            $staffposition_list = Staffposition::getAll2();
+            $stationdate_list = StationDate::getAll();
+            require_once("./views/staffDaily/updateForm.php");
+        }
 
-        // public function update(){
-        //     $ID = $_GET['ID'];
-        //     $S_FName = $_GET['S_FName'];
-        //     $S_LName = $_GET['S_LName'];
-        //     $S_DoB = $_GET['S_DoB'];
-        //     Staff::update($ID,$S_FName,$S_LName,$S_DoB);
-        //     StaffController::index();
-        // }
+        public function update(){
+            $ID = $_GET['ID'];
+            $SP_ID = $_GET['SP_ID'];
+            $StationDate_ID = $_GET['StationDate_ID'];
+     
+            Staffdaily::update($ID,$SP_ID,$StationDate_ID);
+            StaffdailyController::index();
+        }
 
         // public function deleteConfirm(){
         //     $ID = $_GET['ID'];
