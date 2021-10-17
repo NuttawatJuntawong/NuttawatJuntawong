@@ -96,11 +96,11 @@ class Staffdaily
         require("connection_close.php");
         return ;
     }
-    public static function update($SD_ID,$SP_ID,$StationDate_ID)
+    public static function update($SD_ID,$SP_ID)
     {
         //echo $SD_ID,$SP_ID,$StationDate_ID;
         require("connection_connect.php");
-        $sql = "UPDATE `StaffDaily` SET `SP_ID`='$SP_ID',`StationDate_ID`= $StationDate_ID WHERE StaffDaily.SD_ID = $SD_ID";
+        $sql = "UPDATE `StaffDaily` SET `SP_ID`='$SP_ID' WHERE StaffDaily.SD_ID = $SD_ID";
         $result = $conn->query($sql);
         require("connection_close.php");
     }
