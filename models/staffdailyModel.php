@@ -10,10 +10,11 @@ class Staffdaily
     public $Station_StartTime;
     public $StationDate_Date;
     public $SD_Status;
-  
+    public $count;
+    public $Station_Address;
 
 
-    public function __construct($SD_ID,$S_FName,$S_LName,$SP_Name,$SP_Salary,$Station_Name,$Station_StartTime,$StationDate_Date,$SD_Status)
+    public function __construct($SD_ID,$S_FName,$S_LName,$SP_Name,$SP_Salary,$Station_Name,$Station_StartTime,$StationDate_Date,$SD_Status,$count,$Station_Address)
     {
         $this->SD_ID = $SD_ID;
         $this->S_FName = $S_FName;
@@ -24,8 +25,8 @@ class Staffdaily
         $this->Station_StartTime = $Station_StartTime;
         $this->StationDate_Date = $StationDate_Date;
         $this->SD_Status = $SD_Status;
-       
-
+        $this->count = $count;
+        $this->Station_Address = $Station_Address;
     }
     public static function get($ID){
         require("connection_connect.php");
@@ -41,7 +42,7 @@ class Staffdaily
             $Station_StartTime= $my_row[Station_StartTime];
             $StationDate_Date= $my_row[StationDate_Date];
         require("connection_close.php");
-        return new Staffdaily($SD_ID,$S_FName,$S_LName,$SP_Name,$SP_Salary,$Station_Name,$Station_StartTime,$StationDate_Date,$SD_Status);
+        return new Staffdaily($SD_ID,$S_FName,$S_LName,$SP_Name,$SP_Salary,$Station_Name,$Station_StartTime,$StationDate_Date,$SD_Status,$count,$Station_Address);
     }
 
     public static function getAll()
@@ -60,7 +61,7 @@ class Staffdaily
             $Station_StartTime= $my_row[Station_StartTime];
             $StationDate_Date= $my_row[StationDate_Date];
 
-            $staffdailyList[] = new Staffdaily($SD_ID,$S_FName,$S_LName,$SP_Name,$SP_Salary,$Station_Name,$Station_StartTime,$StationDate_Date,$SD_Status);
+            $staffdailyList[] = new Staffdaily($SD_ID,$S_FName,$S_LName,$SP_Name,$SP_Salary,$Station_Name,$Station_StartTime,$StationDate_Date,$SD_Status,$count,$Station_Address);
         }
         require("connection_close.php");
         return $staffdailyList;
@@ -83,7 +84,7 @@ class Staffdaily
             $Station_StartTime= $my_row[Station_StartTime];
             $StationDate_Date= $my_row[StationDate_Date];
 
-            $staffdailyList[] = new Staffdaily($SD_ID,$S_FName,$S_LName,$SP_Name,$SP_Salary,$Station_Name,$Station_StartTime,$StationDate_Date,$SD_Status);
+            $staffdailyList[] = new Staffdaily($SD_ID,$S_FName,$S_LName,$SP_Name,$SP_Salary,$Station_Name,$Station_StartTime,$StationDate_Date,$SD_Status,$count,$Station_Address);
         }
         require("connection_close.php");
         return $staffdailyList;
@@ -111,6 +112,25 @@ class Staffdaily
         $sql = "UPDATE `StaffDaily` SET `SD_Status`=0 WHERE StaffDaily.SD_ID = $ID";
         $result = $conn->query($sql);
         require("connection_close.php");
+    }
+
+    public static function summary()
+    {
+        $summaryList = [];
+        require("connection_connect.php");
+        $sql = "SELECT Station.Station_Name,Station.Station_Address,StationDate.StationDate_Date,Station.Station_StartTime,COUNT(Staff.S_ID) AS C FROM StationDate NATURAL JOIN Station NATURAL JOIN Staff NATURAL JOIN StaffDaily GROUP BY Station.Station_Name,Station.Station_Address,StationDate.StationDate_Date,Station.Station_StartTime";
+        $result = $conn->query($sql);
+        while ($my_row = $result->fetch_assoc()) {
+            $Station_Name= $my_row[Station_Name];
+            $Station_Address= $my_row[Station_Address];
+            $Station_StartTime= $my_row[Station_StartTime];
+            $StationDate_Date= $my_row[StationDate_Date];
+            $count= $my_row[C];
+
+            $summaryList[] = new Staffdaily($SD_ID,$S_FName,$S_LName,$SP_Name,$SP_Salary,$Station_Name,$Station_StartTime,$StationDate_Date,$SD_Status,$count,$Station_Address);
+        }
+        require("connection_close.php");
+        return $summaryList;
     }
 
 }

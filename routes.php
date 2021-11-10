@@ -8,8 +8,9 @@ $controllers = array('pages'=>['home','error'],
 function call($controller,$action){
     require_once("./controllers/".$controller."_controller.php");
     switch($controller){
-        case "pages": $controller = new PagesController();
-                      break;
+        case "pages":       require_once("./models/staffdailyModel.php");
+                            $controller = new PagesController();
+                            break;
         
         case "staff" : require_once("./models/staffModel.php");
                            $controller = new StaffController();
